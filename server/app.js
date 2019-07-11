@@ -28,11 +28,25 @@ const data = [
 // add your code here
 
 app.get('/', (req, res) => {
-    res.send({status: 'ok'}).statusCode(200);
+    res.send({status:'ok'}).status(200);
 });
 
 app.get('/api/TodoItems', (req, res) =>{
+    res.send(data);
 });
+
+app.get('/api/TodoItems/:1', (req, res) => {
+  console.log(req.param.number);
+  if(req.param.number === 1){
+    res.send(data.map(name));
+    console.log(data.map(name));
+  }    
+});
+
+
+// app.post('/api/TodoItems/:number', (req, res) =>{
+
+// });
 
 
 module.exports = app;
