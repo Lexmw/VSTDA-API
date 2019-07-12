@@ -35,8 +35,8 @@ app.get('/api/TodoItems', (req, res) =>{
     res.send(data);
 });
 
+  //Get a todo list item using the todoItemId
 app.get('/api/TodoItems/:id', (req, res) => {
-  
   for(let i = 0; i < data.length; i++) {
     if(data[i]['todoItemId'] == req.params.id) {
         res.send(data[i]);
@@ -56,9 +56,10 @@ app.post('/api/TodoItems', (req, res) => {
 res.status(201).send(req.body);
 });
 
+//Delete Item with the todoitemId
 app.delete('/api/TodoItems/:id', (req,res) => {
   var newData = [];
-	// check if ids are the same, delete from mockData
+  	// check if ids are the same, delete from data
 	for(var i = 0; i < data.length; i++) {
 		if(data[i]['todoItemId'] == req.params.id) {
 			newData = data.splice(i, 1);
